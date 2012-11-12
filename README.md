@@ -8,9 +8,18 @@ Rails validators for:
 
 ## Installation
 
-In your Gemfile:
+### In a Rails 3 app, as a gem
 
-  gem 'romanianvalidations'
+First include it in your Gemfile.
+
+    $ cat Gemfile
+    ...
+    gem 'romanianvalidations'
+    ...
+
+Next install it with Bundler.
+
+    $ bundle install
 
 ## Usage
 
@@ -19,6 +28,8 @@ In your models (ActiveModel), the gem provides the following new validators:
 * CNP
 * IBAN
 * BIC
+
+The algorithms for validation are found in the source code.
 
 ```ruby
     class User
@@ -29,7 +40,7 @@ In your models (ActiveModel), the gem provides the following new validators:
 
 ### TODO
 
-  * test more edge cases; test nil, blank; test messages
+  * test more edge cases; test nil, blank; test messages; test in app
 
 ### Copyright
 
