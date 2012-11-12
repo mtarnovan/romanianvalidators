@@ -23,14 +23,8 @@ def gemspec
                end
 end
 
-desc "Clean the current directory"
-task :clean do
-  rm_rf 'tmp'
-  rm_rf 'pkg'
-end
-
 desc "Run the full spec suite"
-task :full => ["clean", "test"]
+task :full => ["test"]
 
 desc "install the gem locally"
 task :install => :package do
@@ -44,9 +38,7 @@ end
 
 desc "Build the gem"
 task :gem => [:gemspec, :build] do
-  mkdir_p "pkg"
-  sh "gem build #{gemspec.full_name}.gemspec"
-  mv "#{gemspec.full_name}.gem", "pkg"
+  sh "gem build *.gemspec"
 end
 
 desc "Install RomanianValidators"
