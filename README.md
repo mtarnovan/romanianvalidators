@@ -6,13 +6,31 @@ Rails validators for:
   * Cod de identificare fiscală (CIF) and 
   * IBAN (only Romanian format as published by Romanian National Bank).
 
-# Installation
+## Installation
 
+In your Gemfile:
 
-# TODO
+  gem 'romanianvalidations'
+
+## Usage
+
+In your models (ActiveModel), the gem provides the following new validators:
+* CIF
+* CNP
+* IBAN
+* BIC
+
+```ruby
+    class User
+      validates :cnp,             :cnp   => true
+      validates :company_cif,     :cif => true
+    end
+```
+
+### TODO
 
   * test more edge cases; test nil, blank; test messages
 
-## Copyright
+### Copyright
 
 Copyright (c) 2007-2012 Mihai Târnovan. MIT LICENSE. See LICENSE for details.
