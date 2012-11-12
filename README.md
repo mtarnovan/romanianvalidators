@@ -6,6 +6,8 @@ Rails validators for:
   * Cod de identificare fiscală (CIF) and 
   * IBAN (only Romanian format as published by Romanian National Bank).
 
+[![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators)
+
 ## Installation
 
 ### In a Rails 3 app, as a gem
