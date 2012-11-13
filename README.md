@@ -1,12 +1,13 @@
-# Romanian Validators
+# Romanian Validators [![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators)
 
-Rails validators for: 
+ActiveModel validators for: 
 
   * Cod Numeric Personal (CNP)
   * Cod de identificare fiscală (CIF) and 
   * IBAN (only Romanian format as published by Romanian National Bank).
+  * BIC
 
-[![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators)
+Extracted from [Factureaza.ro](https://factureaza.ro), our online invoicing solution for the Romanian market.
 
 ## Installation
 
@@ -23,9 +24,13 @@ Next install it with Bundler.
 
     $ bundle install
 
+Has no other dependency than `ActiveModel`, so it should work without Rails too.
+
+Tested with MRI 1.8.7, 1.9.3, REE, Rubinius and JRuby (see `.travis.yml`)
+
 ## Usage
 
-In your models (ActiveModel), the gem provides the following new validators:
+In your models (`ActiveModel`), the gem provides the following new validators:
 * CIF
 * CNP
 * IBAN
