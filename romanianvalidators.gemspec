@@ -5,6 +5,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Mihai Târnovan']
   s.email       = ['mihai.tarnovan@cubus.ro']
   s.homepage    = 'http://github.com/mtarnovan/romanianvalidators'
+  s.license     = 'MIT'
   s.summary     = %q{Collection of validations for Cod Numeric Personal (CNP), Cod de identificare fiscală (CIF) and IBAN (only Romanian format, as published by Romanian National Bank)}
   s.description = %q{Collection of validations for Cod Numeric Personal (CNP), Cod de identificare fiscală (CIF) and IBAN (only Romanian format, as published by Romanian National Bank).}
 
