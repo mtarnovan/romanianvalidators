@@ -20,11 +20,25 @@ describe "Cod de identificare fiscală" do
       subject.valid?.must_equal false
       subject.errors.size.must_equal 1
     end
+
+    it "rejects invalid CIFs and allows custom error message" do
+      message = "Some custom error message"
+      subject = build_cif_record({:cif => '1'}, {:message => message})
+      subject.valid?.must_equal false
+      subject.errors.size.must_equal 1
+      subject.errors[:cif].must_equal Array.wrap(message)
+    end
+
   end
 
   def build_cif_record(attrs = {}, opts = {})
+    custom_message = opts.fetch(:message, false)
     TestRecord.reset_callbacks(:validate)
-    TestRecord.validates :cif, :cif => true
+    if custom_message
+      TestRecord.validates :cif, :cif => {:message => custom_message}
+    else
+      TestRecord.validates :cif, :cif => true
+    end
     TestRecord.new attrs
   end
 

@@ -20,11 +20,24 @@ describe "BICs" do
       subject.valid?.must_equal false
       subject.errors.size.must_equal 1
     end
+
+    it "rejects invalid BICs and allows custom error message" do
+      message = "Some custom error message"
+      subject = build_bic_record({:bic => '1'}, {:message => message})
+      subject.valid?.must_equal false
+      subject.errors.size.must_equal 1
+      subject.errors[:bic].must_equal Array.wrap(message)
+    end
   end
 
   def build_bic_record(attrs = {}, opts = {})
+    custom_message = opts.fetch(:message, false)
     TestRecord.reset_callbacks(:validate)
-    TestRecord.validates :bic, :bic => true
+    if custom_message
+      TestRecord.validates :bic, :bic => {:message => custom_message}
+    else
+      TestRecord.validates :bic, :bic => true
+    end
     TestRecord.new attrs
   end
 

@@ -20,11 +20,23 @@ describe "Iban (BNR only)" do
       subject.valid?.must_equal false
       subject.errors.size.must_equal 1
     end
+    it "rejects invalid ibans and allows custom error message" do
+      message = "Some custom error message"
+      subject = build_iban_record({:iban => '1'}, {:message => message})
+      subject.valid?.must_equal false
+      subject.errors.size.must_equal 1
+      subject.errors[:iban].must_equal Array.wrap(message)
+    end
   end
 
   def build_iban_record(attrs = {}, opts = {})
+    custom_message = opts.fetch(:message, false)
     TestRecord.reset_callbacks(:validate)
-    TestRecord.validates :iban, :iban => true
+    if custom_message
+      TestRecord.validates :iban, :iban => {:message => custom_message}
+    else
+      TestRecord.validates :iban, :iban => true
+    end
     TestRecord.new attrs
   end
 

@@ -26,7 +26,7 @@ Next install it with Bundler.
 
 Has no other dependency than `ActiveModel`, so it should work without Rails too.
 
-Tested with MRI 1.8.7, 1.9.3, REE, Rubinius and JRuby (see `.travis.yml`)
+Tested with MRI 1.8.7, 1.9.3, 2.0.0, REE, Rubinius and JRuby (see `.travis.yml`)
 
 ## Usage
 
@@ -40,7 +40,7 @@ The algorithms for validation are found in the source code.
 
 ```ruby
     class User
-      validates :cnp,             :cnp   => true
+      validates :cnp,             :cnp   => { :message => 'This is not a valid CNP'}
       validates :company_cif,     :cif => true
     end
 ```
@@ -48,6 +48,7 @@ The algorithms for validation are found in the source code.
 ### TODO
 
   * test more edge cases; test nil, blank; test messages; test in app
+  * add javascript validation ?
 
 ### Copyright
 

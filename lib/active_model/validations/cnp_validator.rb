@@ -5,9 +5,10 @@ module ActiveModel
       def validate_each(record, attribute, value)
         allow_blank = options.fetch(:allow_blank, false)
         allow_nil = options.fetch(:allow_nil, false)
+        message = options.fetch(:message, nil)
         record.errors.add_on_empty(attribute) if value.nil? && !allow_nil
         record.errors.add_on_blank(attribute) if value.blank? && !allow_blank
-        record.errors.add(attribute) unless Cnp.valid?(value)
+        record.errors.add(attribute, message) unless Cnp.valid?(value)
       end
 
       # Algoritm de validare CNP
