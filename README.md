@@ -47,9 +47,9 @@ The algorithms for validation are found in the source code.
 
 ### TODO
 
-  * test more edge cases; test nil, blank; test messages; test in app
+  * test more edge cases
   * add javascript validation ?
 
 ### Copyright
 
-Copyright (c) 2007-2012 Mihai Târnovan. MIT LICENSE. See LICENSE for details.
+Copyright (c) 2007-2013 Mihai Târnovan. MIT LICENSE. See LICENSE for details.
