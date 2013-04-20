@@ -1,9 +1,9 @@
-# Romanian Validators [![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators)
+# Romanian Validators [![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators)[![Gem Version](https://badge.fury.io/rb/romanianvalidators.png)](http://badge.fury.io/rb/romanianvalidators)[![Gem Version](https://badge.fury.io/rb/romanianvalidators.png)](http://badge.fury.io/rb/romanianvalidators)
 
-ActiveModel validators for: 
+ActiveModel validators for:
 
   * Cod Numeric Personal (CNP)
-  * Cod de identificare fiscală (CIF) and 
+  * Cod de identificare fiscală (CIF) and
   * IBAN (only Romanian format as published by Romanian National Bank).
   * BIC
 
