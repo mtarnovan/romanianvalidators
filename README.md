@@ -1,4 +1,4 @@
-# Romanian Validators [![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators)[![Gem Version](https://badge.fury.io/rb/romanianvalidators.png)](http://badge.fury.io/rb/romanianvalidators)
+# Romanian Validators [![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators) [![Gem Version](https://badge.fury.io/rb/romanianvalidators.png)](http://badge.fury.io/rb/romanianvalidators)
 
 ActiveModel validators for:
 
