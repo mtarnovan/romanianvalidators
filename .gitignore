@@ -3,3 +3,4 @@
 *.rbc
 Gemfile.lock
 .rvmrc
+.bundle*
