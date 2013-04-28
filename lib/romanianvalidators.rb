@@ -6,6 +6,17 @@ module ActiveModel
       %w(cif cnp iban bic)
     end
 
+    module EmptyBlankEachValidator
+      def validate_each(record, attribute, value)
+        allow_blank = options.fetch(:allow_blank, false)
+        allow_nil = options.fetch(:allow_nil, false)
+        message = options.fetch(:message, nil)
+        record.errors.add_on_empty(attribute) if value.nil? && !allow_nil
+        record.errors.add_on_blank(attribute) if value.blank? && !allow_blank
+        record.errors.add(attribute, message) unless valid?(value)
+      end
+    end
+
     romanianvalidators.each do |validator_name|
       require "active_model/validations/#{validator_name}_validator"
     end
