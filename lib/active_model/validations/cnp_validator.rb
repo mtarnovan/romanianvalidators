@@ -32,18 +32,13 @@ module ActiveModel
 
         def valid_birthdate?(cnp)
           year_code = cnp[0].chr.to_i
-          year = case
-          when
-            1..2 then "19"
-          when
-            3..4 then "18"
-          when
-            5..6 then "20"
-          when
-            9 then "19" # oare se sare peste un an bisect intre 1800-2099 ?
-          else
-            return false
-          end
+          year = case year_code
+                 when 1..2 then "19"
+                 when 3..4 then "18"
+                 when 5..6 then "20"
+                 when 9    then "19" # oare se sare peste un an bisect intre 1800-2099 ?
+                 else return false
+                 end
           year = (year + cnp[1..2]).to_i
           Date.valid_civil?(year, cnp[3..4].to_i, cnp[5..6].to_i) ? true : false
         rescue ArgumentError
