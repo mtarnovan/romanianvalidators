@@ -11,6 +11,7 @@ require 'minitest/autorun'
 $-w = old_w
 
 require 'romanianvalidators'
+require 'active_support/core_ext/array/wrap'
 
 class TestRecord
   include ActiveModel::Validations
