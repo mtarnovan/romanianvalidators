@@ -3,7 +3,7 @@ module ActiveModel
     class IbanValidator < EachValidator
 
       # use ord for ruby >= 1.9
-      USE_ORD = "".respond_to?(:ord)
+      USE_ORD = ''.respond_to?(:ord)
 
       include ActiveModel::Validations::EmptyBlankEachValidator
 
@@ -16,16 +16,15 @@ module ActiveModel
         false
       end
 
-      private
+    private
 
-        # replace letters according to algorithm
-        # algorithm conversion maps chars to ASCII value - 55
-        def transpose(iban)
-          iban.upcase.gsub(/[A-Z]/) do |s|
-            USE_ORD ? (s[0].ord - 55).to_s : (s[0].to_i - 55).to_s
-          end
+      # replace letters according to algorithm
+      # algorithm conversion maps chars to ASCII value - 55
+      def transpose(iban)
+        iban.upcase.gsub(/[A-Z]/) do |s|
+          USE_ORD ? (s[0].ord - 55).to_s : (s[0].to_i - 55).to_s
         end
-
+      end
     end
   end
 end

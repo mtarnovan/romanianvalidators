@@ -3,7 +3,7 @@ module ActiveModel
     class CifValidator < EachValidator
 
       # reversed test key (753217532)
-      TEST_KEY = "235712357".freeze
+      TEST_KEY = '235712357'.freeze
 
       include ActiveModel::Validations::EmptyBlankEachValidator
 

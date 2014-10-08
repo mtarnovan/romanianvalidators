@@ -13,6 +13,8 @@ $-w = old_w
 require 'romanianvalidators'
 require 'active_support/core_ext/array/wrap'
 
+I18n.enforce_available_locales = true
+
 class TestRecord
   include ActiveModel::Validations
   attr_accessor :cnp, :bic, :cif, :iban

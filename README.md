@@ -40,8 +40,8 @@ The algorithms for validation are found in the source code.
 
 ```ruby
     class User
-      validates :cnp,             :cnp   => { :message => 'This is not a valid CNP'}
-      validates :company_cif,     :cif => true
+      validates :cnp,             cnp:   { message: 'This is not a valid CNP' }
+      validates :company_cif,     cif: true
     end
 ```
 
@@ -52,4 +52,4 @@ The algorithms for validation are found in the source code.
 
 ### Copyright
 
-Copyright (c) 2007-2013 Mihai Târnovan. MIT LICENSE. See LICENSE for details.
+Copyright (c) 2007-2014 Mihai Târnovan. MIT LICENSE. See LICENSE for details.
