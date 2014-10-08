@@ -10,10 +10,10 @@ module ActiveModel
       def validate_each(record, attribute, value)
         allow_blank = options.fetch(:allow_blank, false)
         allow_nil = options.fetch(:allow_nil, false)
-        record.errors.add_on_empty(attribute) if value.nil? && !allow_nil
-        record.errors.add_on_blank(attribute) if value.blank? && !allow_blank
-        record.errors.add(attribute, message) unless valid?(value)
         message = options.fetch(:message, :invalid)
+        record.errors.add_on_empty(attribute) && return if value.nil? && !allow_nil
+        record.errors.add_on_blank(attribute) && return if value.blank? && !allow_blank
+        record.errors.add(attribute, message) && return unless valid?(value)
       end
     end
 
@@ -24,8 +24,8 @@ module ActiveModel
     module HelperMethods
       ActiveModel::Validations.romanianvalidators.each do |validator|
         define_method('validates_' + validator) do |*fields|
-          options ||= (fields.delete fields.find { |f| f.kind_of? Hash}) || true
-          args = fields.push({ validator => options })
+          options ||= (fields.delete(fields.find { |f| f.is_a? Hash })) || true
+          args = fields.push(validator => options)
           validates(*args)
         end
       end
