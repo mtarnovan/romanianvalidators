@@ -1,8 +1,7 @@
 module ActiveModel
   module Validations
     class CnpValidator < EachValidator
-
-      TEST_KEY = "279146358279"
+      TEST_KEY = '279146358279'.each_char.map(&:to_i)
 
       include ActiveModel::Validations::EmptyBlankEachValidator
 
@@ -20,7 +19,9 @@ module ActiveModel
       # pozitia treisprezece din CNP-ul initial.
       def valid?(cnp)
         return false unless well_formed?(cnp) && valid_birthdate?(cnp)
-        (0..11).inject(0){|sum, n| sum += TEST_KEY[n].chr.to_i * cnp[n].chr.to_i} % 11 == cnp[12].chr.to_i
+        control = (0..11).reduce(0) { |a, e| a + TEST_KEY[e] * cnp[e].chr.to_i } % 11
+        control = 1 if control == 10
+        control == cnp[12].chr.to_i
       end
 
     private
@@ -32,10 +33,10 @@ module ActiveModel
       def valid_birthdate?(cnp)
         year_code = cnp[0].chr.to_i
         year = case year_code
-               when 1..2 then "19"
-               when 3..4 then "18"
-               when 5..6 then "20"
-               when 9    then "19" # oare se sare peste un an bisect intre 1800-2099 ?
+               when 1..2 then '19'
+               when 3..4 then '18'
+               when 5..6 then '20'
+               when 9    then '19' # oare se sare peste un an bisect intre 1800-2099 ?
                else return false
                end
         year = (year + cnp[1..2]).to_i
@@ -43,7 +44,6 @@ module ActiveModel
       rescue ArgumentError
         return false
       end
-
     end
   end
 end
