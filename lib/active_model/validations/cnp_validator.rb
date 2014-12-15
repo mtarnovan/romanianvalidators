@@ -14,9 +14,11 @@ module ActiveModel
       # Se foloseste cheia de testare "279146358279". Primele douasprezece cifre se inmultesc pe rand de la
       # stanga spre dreapta cu cifra corespunzatoare din cheia de testare.
       #
-      # Pas 2: Cele douasprezece produse obtinute se aduna si suma obtinuta se imparte la 11. Restul impartirii
-      # reprezinta cifra de control. Pentru un CNP valid acest rest va trebui sa coincida cu cifra de pe
-      # pozitia treisprezece din CNP-ul initial.
+      # Pas 2: Cele douasprezece produse obtinute se aduna si suma obtinuta se imparte la 11.
+      #   * Daca restul impartirii la 11 este mai mic ca 10, atunci acesta va reprezenta cifra de control.
+      #   * Daca restul impartirii este 10 atunci cifra de control este 1.
+      # Restul impartirii reprezinta cifra de control. Pentru un CNP valid acest rest va trebui
+      # sa coincida cu cifra de pe pozitia treisprezece din CNP-ul initial.
       def valid?(cnp)
         return false unless well_formed?(cnp) && valid_birthdate?(cnp)
         control = (0..11).reduce(0) { |a, e| a + TEST_KEY[e] * cnp[e].chr.to_i } % 11
