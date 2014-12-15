@@ -1,3 +1,6 @@
+### 0.1.6 (2014-12-16)
+ * bugfix for CNP validation
+
 ### 0.1.4 (2013-04-29)
  * bugfix
 
