@@ -17,7 +17,7 @@ First include it in your Gemfile.
 
     $ cat Gemfile
     ...
-    gem 'romanianvalidations'
+    gem 'romanianvalidators'
     ...
 
 Next install it with Bundler.
