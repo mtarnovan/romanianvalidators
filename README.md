@@ -1,4 +1,4 @@
-# Romanian Validators [![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.png)](https://travis-ci.org/mtarnovan/romanianvalidators) [![Gem Version](https://badge.fury.io/rb/romanianvalidators.png)](http://badge.fury.io/rb/romanianvalidators) [![Code Climate](https://codeclimate.com/github/mtarnovan/romanianvalidators.png)](https://codeclimate.com/github/mtarnovan/romanianvalidators)
+# Romanian Validators [![Build Status](https://travis-ci.org/mtarnovan/romanianvalidators.svg?branch=master)](https://travis-ci.org/mtarnovan/romanianvalidators) [![Gem Version](https://badge.fury.io/rb/romanianvalidators.svg)](https://badge.fury.io/rb/romanianvalidators) [![Code Climate](https://codeclimate.com/github/mtarnovan/romanianvalidators/badges/gpa.svg)](https://codeclimate.com/github/mtarnovan/romanianvalidators)
 
 ActiveModel validators for:
 
