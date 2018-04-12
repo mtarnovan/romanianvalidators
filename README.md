@@ -22,7 +22,7 @@ If you want ActiveModel integration, use instead:
 
 Has no other dependency (other than `ActiveModel` if you require it).
 
-Tested with MRI 1.8.7, 1.9.3, 2.0.0, REE, Rubinius and JRuby (see `.travis.yml`)
+Tested with MRI 1.9.3, 2.0, 2.1, 2.3, REE, Rubinius and JRuby (see `.travis.yml`)
 
 ## Usage
 
